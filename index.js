@@ -2,6 +2,7 @@ const { Client, GatewayIntentBits, Routes } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const dotenv = require('dotenv');
 const OrderCommand = require('./commands/order.js');
+const SuspensionCommand = require('./commands/suspension.js');
 
 dotenv.config()
 
@@ -35,6 +36,7 @@ async function main() {
     
     const commands = [
         OrderCommand
+        SuspensionCommand
     ];
 
     try {
