@@ -1,44 +1,29 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 
-const orderCommand = new SlashCommandBuilder()
-    .setName('order')
-    .setDescription('Order your favorite meal!')
+const suspensionCommand = new SlashCommandBuilder()
+    .setName('suspension')
+    .setDescription('A command for easily sending a suspension embed.')
     .addStringOption((option) =>
         option
-            .setName('food')
-            .setDescription('Select your favorite food')
+            .setName('rank')
+            .setDescription('Rank of the Officer or person you are suspending.')
             .setRequired(true)
-            .setChoices({
-                name: 'Cake',
-                value: 'cake',
-            }, {
-                name: 'Hamburger',
-                value: 'hamburger',
-            }, {
-                name: 'Pizza',
-                value: 'pizza',
-            }
-            )
     ).addStringOption((option) => 
-    option
-    .setName('drink')
-    .setDescription('Select your favorite drink')
-    .setRequired(true)
-    .setChoices({
-
-        name: 'Water',
-        value: 'water',
-    },
-        {
-            name: 'Coca-Cola',
-            value: 'coca_cola',
-        },
-        {
-            name: 'Sprite',
-            value: 'sprite',
-        },
-    )
+       option
+            .setName('name')
+            .setDescription('Name of the Officer you are suspending.')
+            .setRequired(true)
+     ).addStringOption((option) => 
+       option
+            .setName('days')
+            .setDescription('Number of days you are suspending the Officer for.')
+            .setRequired(true)
+     ).addStringOption((option) =>
+        option
+             .setName('signature')
+             .setDescription('Name of the Internal Affairs Detective who is suspending the Officer.')
+             .setRequired(true)
     );
 
 export default orderCommand.toJSON();
